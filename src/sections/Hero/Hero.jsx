@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 function Hero() {
@@ -45,6 +46,7 @@ function Hero() {
       {/* Main Container */}
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-9rem)] max-w-7xl items-center">
         <div className="grid w-full items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+
           {/* Left Content */}
           <div
             className={`max-w-3xl transition-all duration-1000 ${
@@ -182,7 +184,7 @@ function Hero() {
             </div>
           </div>
 
-          {/* Right Visual */}
+          {/* Right Visual - Profile Image */}
           <div
             className={`relative mx-auto w-full max-w-xl transition-all delay-200 duration-1000 ${
               isVisible
@@ -190,148 +192,54 @@ function Hero() {
                 : "translate-y-8 opacity-0"
             }`}
           >
-            {/* Main Glow */}
-            <div className="absolute inset-10 rounded-full bg-blue-400/20 blur-3xl" />
+            {/* Background Glow */}
+            <div className="absolute left-1/2 top-1/2 h-[75%] w-[75%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-400/25 blur-3xl" />
 
-            {/* Main Card */}
-            <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white/65 p-5 shadow-2xl shadow-blue-900/10 backdrop-blur-2xl sm:p-7">
-              {/* Top Bar */}
-              <div className="mb-6 flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-slate-300" />
-                  <span className="h-3 w-3 rounded-full bg-slate-300" />
-                  <span className="h-3 w-3 rounded-full bg-slate-300" />
+            {/* Decorative Rings */}
+            <div className="absolute left-1/2 top-1/2 h-[90%] w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-blue-200/50" />
+
+            <div className="absolute left-1/2 top-1/2 h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-indigo-200/40" />
+
+            {/* Main Image Card */}
+            <div className="relative mx-auto w-[82%] max-w-[420px]">
+              <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-blue-500/20 via-indigo-500/10 to-transparent blur-xl" />
+
+              <div className="relative overflow-hidden rounded-[2.5rem] border border-white/80 bg-white/70 p-3 shadow-2xl shadow-blue-900/15 backdrop-blur-2xl">
+                {/* Image */}
+                <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-blue-100 via-white to-indigo-100">
+                  <img
+                    src="/Mohamed-Mamdouh.png"
+                    alt="Mohamed Mamdouh - Full-Stack Web Developer"
+                    className="relative z-10 mx-auto block h-auto w-full object-cover object-top transition-transform duration-700 hover:scale-[1.03]"
+                  />
+
+                  {/* Image Bottom Gradient */}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-32 bg-gradient-to-t from-slate-950/30 to-transparent" />
                 </div>
 
-                <div className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-blue-600">
-                  Developer
-                </div>
-              </div>
+                {/* Profile Info */}
+                <div className="px-3 pb-2 pt-5">
+                  <div className="flex items-end justify-between gap-4">
+                    <div>
+                      <p className="text-md  p-18 font-black tracking-tight text-slate-950">
+                        Mohamed Mamdouh
+                      </p>
 
-              {/* Code Window */}
-              <div className="rounded-2xl bg-slate-950 p-5 shadow-xl sm:p-6">
-                <div className="flex items-center gap-2 text-xs text-slate-500">
-                  <span className="text-blue-400">01</span>
-                  <span className="text-slate-600">/</span>
-                  <span>portfolio.jsx</span>
-                </div>
+                      <p className="mt-1 text-sm font-medium text-blue-600">
+                        Full-Stack Web Developer
+                      </p>
+                    </div>
 
-                <div className="mt-6 space-y-3 font-mono text-xs leading-6 sm:text-sm">
-                  <p>
-                    <span className="text-purple-400">const</span>{" "}
-                    <span className="text-sky-300">developer</span>{" "}
-                    <span className="text-white">=</span>{" "}
-                    <span className="text-yellow-300">{"{"}</span>
-                  </p>
-
-                  <p className="pl-5">
-                    <span className="text-blue-300">name</span>
-                    <span className="text-white">:</span>{" "}
-                    <span className="text-emerald-300">
-                      "Mohamed Mamdouh"
-                    </span>
-                    <span className="text-white">,</span>
-                  </p>
-
-                  <p className="pl-5">
-                    <span className="text-blue-300">role</span>
-                    <span className="text-white">:</span>{" "}
-                    <span className="text-emerald-300">
-                      "Full-Stack Developer"
-                    </span>
-                    <span className="text-white">,</span>
-                  </p>
-
-                  <p className="pl-5">
-                    <span className="text-blue-300">frontend</span>
-                    <span className="text-white">:</span>{" "}
-                    <span className="text-emerald-300">
-                      "React + Tailwind"
-                    </span>
-                    <span className="text-white">,</span>
-                  </p>
-
-                  <p className="pl-5">
-                    <span className="text-blue-300">backend</span>
-                    <span className="text-white">:</span>{" "}
-                    <span className="text-emerald-300">
-                      "Node + Express"
-                    </span>
-                    <span className="text-white">,</span>
-                  </p>
-
-                  <p className="pl-5">
-                    <span className="text-blue-300">database</span>
-                    <span className="text-white">:</span>{" "}
-                    <span className="text-emerald-300">"MongoDB"</span>
-                  </p>
-
-                  <p>
-                    <span className="text-yellow-300">{"}"}</span>
-                  </p>
-
-                  <div className="mt-5 h-px bg-slate-800" />
-
-                  <p className="pt-2">
-                    <span className="text-purple-400">return</span>{" "}
-                    <span className="text-sky-300">build</span>
-                    <span className="text-white">(</span>
-                    <span className="text-emerald-300">
-                      "great experiences"
-                    </span>
-                    <span className="text-white">);</span>
-                  </p>
-                </div>
-              </div>
-
-              {/* Stack Cards */}
-              <div className="mt-5 grid grid-cols-2 gap-3">
-                <div className="rounded-2xl border border-blue-100 bg-blue-50/70 p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-blue-50">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white text-sm font-black text-blue-600 shadow-sm">
-                    FE
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-950 text-xs font-black text-white shadow-lg">
+                      MM
+                    </div>
                   </div>
-
-                  <p className="text-sm font-bold text-slate-900">
-                    Frontend
-                  </p>
-
-                  <p className="mt-1 text-xs text-slate-500">
-                    React + Tailwind
-                  </p>
                 </div>
-
-                <div className="rounded-2xl border border-indigo-100 bg-indigo-50/70 p-4 transition-all duration-300 hover:-translate-y-1 hover:bg-indigo-50">
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white text-sm font-black text-indigo-600 shadow-sm">
-                    BE
-                  </div>
-
-                  <p className="text-sm font-bold text-slate-900">
-                    Backend
-                  </p>
-
-                  <p className="mt-1 text-xs text-slate-500">
-                    Node + Express
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom Status */}
-              <div className="mt-4 flex items-center justify-between rounded-2xl border border-slate-100 bg-white/70 px-4 py-3">
-                <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500" />
-                  <span className="text-xs font-semibold text-slate-600">
-                    System online
-                  </span>
-                </div>
-
-                <span className="text-xs font-medium text-slate-400">
-                  Building & learning
-                </span>
               </div>
             </div>
 
             {/* Floating Badge - MERN */}
-            <div className="absolute -left-4 top-20 hidden rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-xl shadow-blue-900/10 backdrop-blur-xl sm:block">
+            <div className="absolute -left-2 top-16 hidden rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-xl shadow-blue-900/10 backdrop-blur-xl sm:block lg:-left-4">
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
                 Stack
               </p>
@@ -341,14 +249,36 @@ function Hero() {
               </p>
             </div>
 
+            {/* Floating Badge - Available */}
+            <div className="absolute -right-2 top-32 hidden rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-xl shadow-blue-900/10 backdrop-blur-xl sm:block lg:-right-4">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.6)]" />
+
+                <p className="text-xs font-bold text-slate-700">
+                  Available
+                </p>
+              </div>
+            </div>
+
             {/* Floating Badge - Web Development */}
-            <div className="absolute -right-4 bottom-24 hidden rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-xl shadow-blue-900/10 backdrop-blur-xl sm:block">
+            <div className="absolute -right-2 bottom-20 hidden rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-xl shadow-blue-900/10 backdrop-blur-xl sm:block lg:-right-4">
               <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
                 Focus
               </p>
 
               <p className="mt-1 text-sm font-black text-blue-600">
                 Web Development
+              </p>
+            </div>
+
+            {/* Floating Tech Badge */}
+            <div className="absolute -left-2 bottom-14 hidden rounded-2xl border border-white/80 bg-white/90 px-4 py-3 shadow-xl shadow-blue-900/10 backdrop-blur-xl sm:block lg:-left-4">
+              <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">
+                Building With
+              </p>
+
+              <p className="mt-1 text-sm font-black text-slate-900">
+                React · Node · Mongo
               </p>
             </div>
           </div>
@@ -375,3 +305,4 @@ function Hero() {
 }
 
 export default Hero;
+

@@ -19,6 +19,7 @@ const projects = [
     featured: true,
     github: "https://github.com/mo-code-dev",
     live: "#",
+    image: null,
   },
   {
     id: 2,
@@ -31,6 +32,7 @@ const projects = [
     featured: true,
     github: "https://github.com/mo-code-dev",
     live: "#",
+    image: null,
   },
   {
     id: 3,
@@ -40,9 +42,11 @@ const projects = [
       "A modern personal portfolio designed to showcase my skills, projects, experience, and development journey with a clean responsive interface.",
     tech: ["React", "Tailwind CSS", "Vite", "JavaScript"],
     type: "Frontend",
-    featured: false,
-    github: "https://github.com/mo-code-dev",
-    live: "#",
+    featured: true,
+    github:
+      "https://github.com/mo-code-dev/mohamed-mamdouh-portfolio",
+    live: "https://mohamed-mamdouh-portfolio-five.vercel.app/",
+    image: "/portfolio-architecture.png",
   },
 ];
 
@@ -59,6 +63,7 @@ const projectIcons = {
       <path d="M7 8h10M7 12h4M7 16h7" />
     </svg>
   ),
+
   Frontend: (
     <svg
       viewBox="0 0 24 24"
@@ -102,7 +107,11 @@ function ArrowUpRight() {
 
 function GithubIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="h-5 w-5"
+    >
       <path d="M12 .7a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.05c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.2.09 1.83 1.23 1.83 1.23 1.07 1.83 2.8 1.3 3.48.99.11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.62-2.8 5.64-5.48 5.94.43.37.81 1.1.81 2.22v3.28c0 .32.22.69.83.58A12 12 0 0 0 12 .7Z" />
     </svg>
   );
@@ -120,6 +129,21 @@ function ExternalLinkIcon() {
       <path d="M14 4h6v6" />
       <path d="M10 14 20 4" />
       <path d="M20 13v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5" />
+    </svg>
+  );
+}
+
+function EyeIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      className="h-5 w-5"
+    >
+      <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z" />
+      <circle cx="12" cy="12" r="2.5" />
     </svg>
   );
 }
@@ -143,11 +167,15 @@ function Projects() {
       {/* Background Decorations */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-[-120px] top-32 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" />
+
         <div className="absolute right-[-100px] top-1/3 h-80 w-80 rounded-full bg-indigo-200/30 blur-3xl" />
+
         <div className="absolute bottom-0 left-1/3 h-64 w-64 rounded-full bg-cyan-100/30 blur-3xl" />
 
         <div className="absolute left-[8%] top-24 h-2 w-2 rounded-full bg-blue-300" />
+
         <div className="absolute right-[14%] top-40 h-2 w-2 rounded-full bg-indigo-300" />
+
         <div className="absolute bottom-32 right-[25%] h-2 w-2 rounded-full bg-cyan-300" />
       </div>
 
@@ -201,6 +229,64 @@ function Projects() {
               <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-blue-100/40 blur-3xl transition-all duration-500 group-hover:bg-indigo-100/60" />
 
               <div className="relative">
+                {/* Portfolio Architecture Preview */}
+                {project.image && (
+                  <div className="mb-8">
+                    <a
+                      href={project.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="View portfolio architecture"
+                      className="group/architecture relative block overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 shadow-xl shadow-slate-900/10"
+                    >
+                      {/* Image */}
+                      <div className="relative overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt="Personal Portfolio Architecture"
+                          className="block h-auto max-h-[380px] w-full object-cover object-top transition-transform duration-700 group-hover/architecture:scale-[1.025]"
+                        />
+
+                        {/* Gradient Overlay */}
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-70" />
+
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center bg-slate-950/0 opacity-0 transition-all duration-300 group-hover/architecture:bg-slate-950/35 group-hover/architecture:opacity-100">
+                          <span className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/95 px-5 py-3 text-sm font-bold text-slate-900 shadow-2xl backdrop-blur-md transition-transform duration-300 group-hover/architecture:scale-100">
+                            <EyeIcon />
+                            View Architecture
+                          </span>
+                        </div>
+
+                        {/* Image Label */}
+                        <div className="absolute bottom-4 left-4">
+                          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/70 px-3 py-1.5 text-xs font-bold text-white shadow-lg backdrop-blur-md">
+                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                            System Architecture
+                          </span>
+                        </div>
+                      </div>
+                    </a>
+
+                    {/* Image Caption */}
+                    <div className="mt-3 flex items-center justify-between px-1">
+                      <span className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
+                        Project Architecture
+                      </span>
+
+                      <a
+                        href={project.image}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 transition-colors hover:text-indigo-600"
+                      >
+                        Open Full Size
+                        <ArrowUpRight />
+                      </a>
+                    </div>
+                  </div>
+                )}
+
                 {/* Project Top */}
                 <div className="flex items-start justify-between gap-5">
                   <div className="flex items-center gap-4">
@@ -266,7 +352,7 @@ function Projects() {
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-4 py-2.5 text-sm font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600"
+                      className="inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-slate-900/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-600 hover:shadow-blue-500/20"
                     >
                       Live Demo
                       <ArrowUpRight />
