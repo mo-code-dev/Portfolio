@@ -6,7 +6,7 @@ function Skills() {
       title: "Frontend",
       description:
         "Building responsive, modern and interactive interfaces with a strong focus on usability.",
-      skills: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind CSS"],
+      skills: ["HTML5", "CSS3", "JavaScript", "React.js", "Next.js", "Tailwind CSS"],
     },
     {
       number: "02",
