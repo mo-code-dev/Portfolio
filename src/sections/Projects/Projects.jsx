@@ -6,7 +6,7 @@ const projects = [
     title: "Full-Stack E-Commerce",
     category: "Full-Stack Development",
     description:
-      "A complete full-stack e-commerce web application with authentication, product management, protected routes, and database integration.",
+      "A complete full-stack e-commerce web application with authentication, product management, protected routes, REST APIs, and database integration.",
     tech: [
       "React",
       "Tailwind CSS",
@@ -21,6 +21,7 @@ const projects = [
     live: "#",
     image: null,
   },
+
   {
     id: 2,
     title: "Alex.Store",
@@ -31,20 +32,125 @@ const projects = [
     type: "Frontend",
     featured: true,
     github: "https://github.com/mo-code-dev",
+    live: "https://alex-store-y1z5.vercel.app/",
+    image: null,
+  },
+
+  {
+    id: 3,
+    title: "UNION",
+    category: "SaaS Platform",
+    description:
+      "A scalable SaaS platform concept designed to support multiple business types with bilingual experiences, role-based authentication, business management, and subscription-ready architecture.",
+    tech: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "i18next",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+    ],
+    type: "Full-Stack",
+    featured: true,
+    github: "https://github.com/mo-code-dev",
     live: "#",
     image: null,
   },
+
   {
-    id: 3,
+    id: 4,
+    title: "ALPHA",
+    category: "Real Estate Landing Page",
+    description:
+      "A premium real estate landing page created with a dark luxury visual identity for showcasing properties and developments across leading New Cairo and West Cairo locations.",
+    tech: ["React", "Tailwind CSS", "JavaScript", "UI/UX"],
+    type: "Frontend",
+    featured: true,
+    github: "https://github.com/mo-code-dev",
+    live: "#",
+    image: null,
+  },
+
+  {
+    id: 5,
+    title: "SkillUp",
+    category: "E-Learning Platform",
+    description:
+      "A modern e-learning platform designed to present online courses, instructors, categories, and educational content through a responsive and interactive interface.",
+    tech: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "JavaScript",
+      "Framer Motion",
+    ],
+    type: "Frontend",
+    featured: true,
+    github: "https://github.com/mo-code-dev/skillup-e-learning-platform",
+    live: "https://skillup-e-learning-platform.vercel.app/",
+    image: null,
+  },
+
+  {
+    id: 6,
+    title: "LUMA",
+    category: "Restaurant Digital Menu",
+    description:
+      "A modern bilingual restaurant digital menu experience with product details, extras, cart functionality, localStorage, delivery and takeaway options, and direct WhatsApp and phone ordering.",
+    tech: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Lucide",
+      "JavaScript",
+    ],
+    type: "Frontend",
+    featured: true,
+    github: "https://github.com/mo-code-dev",
+    live: "#",
+    image: null,
+  },
+
+  {
+    id: 7,
+    title: "Dr. Ahmed Mohamed Saeed",
+    category: "Medical Landing Page",
+    description:
+      "A premium medical landing page for an internal medicine and gastroenterology doctor, focused on trust, clear service presentation, appointment booking, and direct communication.",
+    tech: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Lucide",
+      "Responsive Design",
+    ],
+    type: "Frontend",
+    featured: true,
+    github: "https://github.com/mo-code-dev",
+    live: "#",
+    image: null,
+  },
+
+  {
+    id: 8,
     title: "Personal Portfolio",
     category: "Portfolio Website",
     description:
-      "A modern personal portfolio designed to showcase my skills, projects, experience, and development journey with a clean responsive interface.",
-    tech: ["React", "Tailwind CSS", "Vite", "JavaScript"],
+      "A modern personal portfolio designed to showcase my skills, projects, experience, education, certificates, and professional journey with a clean responsive interface.",
+    tech: [
+      "React",
+      "Tailwind CSS",
+      "Vite",
+      "JavaScript",
+      "Responsive Design",
+    ],
     type: "Frontend",
     featured: true,
-    github:
-      "https://github.com/mo-code-dev/mohamed-mamdouh-portfolio",
+    github: "https://github.com/mo-code-dev/Portfolio",
     live: "https://mohamed-mamdouh-portfolio-five.vercel.app/",
     image: "/portfolio-architecture.png",
   },
@@ -88,6 +194,11 @@ const techColors = {
   JavaScript: "bg-yellow-50 text-yellow-700 border-yellow-100",
   "UI/UX": "bg-pink-50 text-pink-700 border-pink-100",
   Vite: "bg-purple-50 text-purple-700 border-purple-100",
+  i18next: "bg-indigo-50 text-indigo-700 border-indigo-100",
+  "Framer Motion": "bg-rose-50 text-rose-700 border-rose-100",
+  Lucide: "bg-orange-50 text-orange-700 border-orange-100",
+  "Responsive Design":
+    "bg-teal-50 text-teal-700 border-teal-100",
 };
 
 function ArrowUpRight() {
@@ -212,14 +323,12 @@ function Projects() {
             <article
               key={project.id}
               className={`group relative overflow-hidden rounded-3xl border border-slate-200/80 bg-white/90 p-7 shadow-[0_20px_60px_-35px_rgba(15,23,42,0.35)] backdrop-blur transition-all duration-700 hover:-translate-y-2 hover:border-blue-200 hover:shadow-[0_30px_80px_-35px_rgba(37,99,235,0.35)] ${
-                project.featured ? "lg:col-span-1" : ""
-              } ${
                 visible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-10 opacity-0"
               }`}
               style={{
-                transitionDelay: `${index * 150}ms`,
+                transitionDelay: `${index * 120}ms`,
               }}
             >
               {/* Top Gradient Line */}
@@ -229,36 +338,32 @@ function Projects() {
               <div className="pointer-events-none absolute -right-20 -top-20 h-40 w-40 rounded-full bg-blue-100/40 blur-3xl transition-all duration-500 group-hover:bg-indigo-100/60" />
 
               <div className="relative">
-                {/* Portfolio Architecture Preview */}
+                {/* Architecture Preview */}
                 {project.image && (
                   <div className="mb-8">
                     <a
                       href={project.image}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="View portfolio architecture"
+                      aria-label={`View ${project.title} architecture`}
                       className="group/architecture relative block overflow-hidden rounded-2xl border border-slate-200 bg-slate-950 shadow-xl shadow-slate-900/10"
                     >
-                      {/* Image */}
                       <div className="relative overflow-hidden">
                         <img
                           src={project.image}
-                          alt="Personal Portfolio Architecture"
+                          alt={`${project.title} Architecture`}
                           className="block h-auto max-h-[380px] w-full object-cover object-top transition-transform duration-700 group-hover/architecture:scale-[1.025]"
                         />
 
-                        {/* Gradient Overlay */}
                         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-70" />
 
-                        {/* Hover Overlay */}
                         <div className="absolute inset-0 flex items-center justify-center bg-slate-950/0 opacity-0 transition-all duration-300 group-hover/architecture:bg-slate-950/35 group-hover/architecture:opacity-100">
-                          <span className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/95 px-5 py-3 text-sm font-bold text-slate-900 shadow-2xl backdrop-blur-md transition-transform duration-300 group-hover/architecture:scale-100">
+                          <span className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-white/95 px-5 py-3 text-sm font-bold text-slate-900 shadow-2xl backdrop-blur-md">
                             <EyeIcon />
                             View Architecture
                           </span>
                         </div>
 
-                        {/* Image Label */}
                         <div className="absolute bottom-4 left-4">
                           <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/70 px-3 py-1.5 text-xs font-bold text-white shadow-lg backdrop-blur-md">
                             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -268,7 +373,6 @@ function Projects() {
                       </div>
                     </a>
 
-                    {/* Image Caption */}
                     <div className="mt-3 flex items-center justify-between px-1">
                       <span className="text-xs font-semibold uppercase tracking-[0.15em] text-slate-400">
                         Project Architecture
@@ -376,7 +480,7 @@ function Projects() {
               ? "translate-y-0 opacity-100"
               : "translate-y-8 opacity-0"
           }`}
-          style={{ transitionDelay: "500ms" }}
+          style={{ transitionDelay: "900ms" }}
         >
           <div className="mx-auto max-w-2xl">
             <p className="text-sm font-bold uppercase tracking-[0.18em] text-blue-100">
