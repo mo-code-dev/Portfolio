@@ -71,7 +71,7 @@ function Navbar() {
     setIsOpen(false);
 
     window.open(
-      "/Mohamed_Mamdouh_Training_Internship_CV_FINAL.pdf",
+      "/Mohamed_Mamdouh-Full-stack.pdf",
       "_blank",
       "noopener,noreferrer"
     );
