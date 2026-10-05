@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 function Navbar() {
@@ -9,6 +10,7 @@ function Navbar() {
     { name: "Home", id: "home" },
     { name: "About", id: "about" },
     { name: "Skills", id: "skills" },
+    { name: "Services", id: "services" },
     { name: "Projects", id: "projects" },
     { name: "Experience", id: "experience" },
     { name: "Education", id: "education" },
@@ -27,9 +29,10 @@ function Navbar() {
       let currentSection = "home";
 
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 180;
+        const rect = section.getBoundingClientRect();
+        const sectionTop = rect.top + window.scrollY;
 
-        if (window.scrollY >= sectionTop) {
+        if (window.scrollY >= sectionTop - 220) {
           currentSection = section.id;
         }
       });
@@ -57,12 +60,21 @@ function Navbar() {
   const handleNavigation = (id) => {
     setIsOpen(false);
 
+    // Make the clicked section active immediately
+    setActiveSection(id);
+
     const section = document.getElementById(id);
 
     if (section) {
-      section.scrollIntoView({
+      const headerOffset = 120;
+      const elementPosition =
+        section.getBoundingClientRect().top + window.scrollY;
+
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
         behavior: "smooth",
-        block: "start",
       });
     }
   };
@@ -126,7 +138,7 @@ function Navbar() {
                 className={`relative rounded-xl px-3.5 py-2.5 text-[15px] font-medium transition-all duration-300 lg:px-4 ${
                   isActive
                     ? "bg-blue-50 text-blue-700"
-                    : "text-slate-500 hover:bg-slate-100/80 hover:text-slate-900"
+                    : "text-slate-500 hover:bg-blue-50 hover:text-blue-700"
                 }`}
               >
                 {link.name}
@@ -189,7 +201,7 @@ function Navbar() {
       <div
         className={`mx-auto mt-3 max-w-7xl overflow-hidden rounded-2xl border border-blue-100 bg-white/90 shadow-2xl shadow-blue-900/10 backdrop-blur-2xl transition-all duration-500 md:hidden ${
           isOpen
-            ? "max-h-[800px] translate-y-0 opacity-100"
+            ? "max-h-[900px] translate-y-0 opacity-100"
             : "pointer-events-none max-h-0 -translate-y-2 opacity-0"
         }`}
       >
@@ -205,7 +217,7 @@ function Navbar() {
                 className={`flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-[15px] font-medium transition-all duration-300 ${
                   isActive
                     ? "bg-blue-50 text-blue-700"
-                    : "text-slate-500 hover:bg-slate-50 hover:text-slate-900"
+                    : "text-slate-500 hover:bg-blue-50 hover:text-blue-700"
                 }`}
               >
                 <span>{link.name}</span>
@@ -235,3 +247,4 @@ function Navbar() {
 }
 
 export default Navbar;
+
